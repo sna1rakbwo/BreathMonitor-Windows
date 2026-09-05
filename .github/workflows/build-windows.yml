@@ -27,6 +27,15 @@ jobs:
         shell: powershell
         run: choco install innosetup --no-progress -y
 
+      - name: Install Simplified Chinese installer language
+        shell: powershell
+        run: |
+          $languageDirectory = Join-Path ${env:ProgramFiles(x86)} "Inno Setup 6\\Languages"
+          New-Item -ItemType Directory -Force -Path $languageDirectory | Out-Null
+          Invoke-WebRequest `
+            -Uri "https://raw.githubusercontent.com/jrsoftware/issrc/main/Files/Languages/ChineseSimplified.isl" `
+            -OutFile (Join-Path $languageDirectory "ChineseSimplified.isl")
+
       - name: Build and smoke-test packages
         shell: powershell
         run: .\build_windows.ps1
