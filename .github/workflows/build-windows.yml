@@ -1,0 +1,39 @@
+name: Build Windows app
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          architecture: "x64"
+          cache: "pip"
+
+      - name: Install Inno Setup
+        shell: powershell
+        run: choco install innosetup --no-progress -y
+
+      - name: Build and smoke-test packages
+        shell: powershell
+        run: .\build_windows.ps1
+
+      - name: Upload Windows packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: BreathMonitor-Windows-x64-v1.1.0
+          path: release/*
+          if-no-files-found: error
+          retention-days: 30

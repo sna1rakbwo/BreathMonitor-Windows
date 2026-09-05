@@ -1,0 +1,302 @@
+{
+  "configuration": {
+    "sample_rate_hz": 20,
+    "duration_seconds": 180,
+    "paired_seeds": 30,
+    "scenarios": [
+      {
+        "key": "clean",
+        "label": "稳定呼吸",
+        "amplitude": 220.0,
+        "noise": 8.0,
+        "drift": 0.0,
+        "amplitude_modulation": 0.0,
+        "motion_bursts": 0,
+        "rate_mode": "constant",
+        "apnea": null
+      },
+      {
+        "key": "low_amplitude",
+        "label": "低幅呼吸",
+        "amplitude": 42.0,
+        "noise": 13.0,
+        "drift": 0.0,
+        "amplitude_modulation": 0.0,
+        "motion_bursts": 0,
+        "rate_mode": "constant",
+        "apnea": null
+      },
+      {
+        "key": "baseline_drift",
+        "label": "基线漂移",
+        "amplitude": 220.0,
+        "noise": 12.0,
+        "drift": 520.0,
+        "amplitude_modulation": 0.0,
+        "motion_bursts": 0,
+        "rate_mode": "constant",
+        "apnea": null
+      },
+      {
+        "key": "amplitude_change",
+        "label": "幅度变化",
+        "amplitude": 150.0,
+        "noise": 14.0,
+        "drift": 0.0,
+        "amplitude_modulation": 0.75,
+        "motion_bursts": 0,
+        "rate_mode": "constant",
+        "apnea": null
+      },
+      {
+        "key": "motion",
+        "label": "体动干扰",
+        "amplitude": 190.0,
+        "noise": 18.0,
+        "drift": 240.0,
+        "amplitude_modulation": 0.0,
+        "motion_bursts": 8,
+        "rate_mode": "constant",
+        "apnea": null
+      },
+      {
+        "key": "rate_step",
+        "label": "频率突变",
+        "amplitude": 190.0,
+        "noise": 12.0,
+        "drift": 0.0,
+        "amplitude_modulation": 0.0,
+        "motion_bursts": 0,
+        "rate_mode": "step",
+        "apnea": null
+      },
+      {
+        "key": "apnea",
+        "label": "屏息片段",
+        "amplitude": 200.0,
+        "noise": 10.0,
+        "drift": 0.0,
+        "amplitude_modulation": 0.0,
+        "motion_bursts": 0,
+        "rate_mode": "constant",
+        "apnea": [
+          75.0,
+          115.0
+        ]
+      }
+    ],
+    "evaluation": "30 s warm-up; rate-step transition excludes 25 s; apnea recovery excludes 20 s"
+  },
+  "summary": [
+    {
+      "scenario": "clean",
+      "scenario_label": "稳定呼吸",
+      "method": "threshold",
+      "mae_mean": 0.07944957914478794,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "clean",
+      "scenario_label": "稳定呼吸",
+      "method": "consensus",
+      "mae_mean": 0.024697085644849306,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "clean",
+      "scenario_label": "稳定呼吸",
+      "method": "hybrid",
+      "mae_mean": 0.054784372362912115,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "low_amplitude",
+      "scenario_label": "低幅呼吸",
+      "method": "threshold",
+      "mae_mean": 0.4164712362132096,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.005333333333333333,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "low_amplitude",
+      "scenario_label": "低幅呼吸",
+      "method": "consensus",
+      "mae_mean": 0.09581876388864281,
+      "coverage_mean": 0.9979999999999999,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "low_amplitude",
+      "scenario_label": "低幅呼吸",
+      "method": "hybrid",
+      "mae_mean": 0.21356074837215494,
+      "coverage_mean": 0.9948888888888889,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "baseline_drift",
+      "scenario_label": "基线漂移",
+      "method": "threshold",
+      "mae_mean": 0.06445055257098799,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "baseline_drift",
+      "scenario_label": "基线漂移",
+      "method": "consensus",
+      "mae_mean": 0.026060821885133693,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "baseline_drift",
+      "scenario_label": "基线漂移",
+      "method": "hybrid",
+      "mae_mean": 0.04570549660664571,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "amplitude_change",
+      "scenario_label": "幅度变化",
+      "method": "threshold",
+      "mae_mean": 0.12645642659876594,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "amplitude_change",
+      "scenario_label": "幅度变化",
+      "method": "consensus",
+      "mae_mean": 0.03952103345929877,
+      "coverage_mean": 0.9953333333333332,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "amplitude_change",
+      "scenario_label": "幅度变化",
+      "method": "hybrid",
+      "mae_mean": 0.08368874479237007,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "motion",
+      "scenario_label": "体动干扰",
+      "method": "threshold",
+      "mae_mean": 0.11764800508523354,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "motion",
+      "scenario_label": "体动干扰",
+      "method": "consensus",
+      "mae_mean": 0.14260256193357357,
+      "coverage_mean": 0.8326666666666666,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "motion",
+      "scenario_label": "体动干扰",
+      "method": "hybrid",
+      "mae_mean": 0.10134522921884317,
+      "coverage_mean": 0.9995555555555555,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "rate_step",
+      "scenario_label": "频率突变",
+      "method": "threshold",
+      "mae_mean": 0.08347166099088753,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": 10.0
+    },
+    {
+      "scenario": "rate_step",
+      "scenario_label": "频率突变",
+      "method": "consensus",
+      "mae_mean": 0.019310228841127222,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": 16.0
+    },
+    {
+      "scenario": "rate_step",
+      "scenario_label": "频率突变",
+      "method": "hybrid",
+      "mae_mean": 0.05700498537694682,
+      "coverage_mean": 1.0,
+      "gross_error_rate_mean": 0.0,
+      "apnea_false_output_mean": NaN,
+      "step_latency_mean": 12.0
+    },
+    {
+      "scenario": "apnea",
+      "scenario_label": "屏息片段",
+      "method": "threshold",
+      "mae_mean": 1.816663733557665,
+      "coverage_mean": 0.7651851851851852,
+      "gross_error_rate_mean": 0.10033591731266149,
+      "apnea_false_output_mean": 1.0,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "apnea",
+      "scenario_label": "屏息片段",
+      "method": "consensus",
+      "mae_mean": 0.27568139437495975,
+      "coverage_mean": 0.5318518518518518,
+      "gross_error_rate_mean": 0.023483414936910762,
+      "apnea_false_output_mean": 0.11733333333333335,
+      "step_latency_mean": NaN
+    },
+    {
+      "scenario": "apnea",
+      "scenario_label": "屏息片段",
+      "method": "hybrid",
+      "mae_mean": 0.5247421206130892,
+      "coverage_mean": 0.5448148148148149,
+      "gross_error_rate_mean": 0.023131602329931257,
+      "apnea_false_output_mean": 0.09066666666666667,
+      "step_latency_mean": NaN
+    }
+  ]
+}
